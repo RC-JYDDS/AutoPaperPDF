@@ -31,7 +31,7 @@ foreach ($file in Get-ChildItem -LiteralPath $libs -Filter *.dll | Sort-Object N
 }
 $arguments += '/resource:' + (Join-Path $root 'THIRD_PARTY_NOTICES.txt') + ',AutoPaper.ThirdPartyNotices.txt'
 foreach ($file in Get-ChildItem -LiteralPath $source -Filter *.cs | Sort-Object Name) { $arguments += $file.FullName }
-& $csc @arguments
+& $csc /noconfig @arguments
 if ($LASTEXITCODE -ne 0) { throw 'Compilation failed.' }
 $metadata = [Diagnostics.FileVersionInfo]::GetVersionInfo($output)
 if ($metadata.FileVersion -ne $fileVersion -or $metadata.ProductVersion -ne "$version+$date" -or $metadata.ProductName -ne '通用表格 PDF 自动选纸工具') {
