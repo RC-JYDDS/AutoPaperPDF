@@ -8,12 +8,10 @@ namespace AutoPaper
     public sealed class PageMarginState
     {
         readonly PageMargins original;
-        readonly bool centered;
 
         public PageMarginState(object value)
         {
-            dynamic page = value;
-            original = PageMargins.FromPage(value); centered = (bool)page.CenterHorizontally;
+            original = PageMargins.FromPage(value);
         }
 
         public PageMargins Original { get { return original.Copy(); } }
@@ -28,9 +26,13 @@ namespace AutoPaper
         {
             dynamic page = value;
             PageMargins effective = Resolve(settings); effective.Apply(value);
-            page.CenterHorizontally = settings != null && settings.UseCustom ? false : centered;
+            // The intermediate paper may be larger than the final PDF.
+            // Anchor the range to its requested left/top margins in both modes.
+            page.CenterHorizontally = false;
             page.CenterVertically = false;
             effective.Verify(value);
+            if ((bool)page.CenterHorizontally || (bool)page.CenterVertically)
+                throw new InvalidOperationException("表格软件未接受页面定位设置，无法保证四边留白。");
         }
     }
 

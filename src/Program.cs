@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 [assembly: AssemblyTitle(AutoPaper.AppInfo.ProductName)]
-[assembly: AssemblyDescription("按打印区域自动选纸并使用本机 Excel/WPS 导出 PDF")]
+[assembly: AssemblyDescription("按打印区域和四边留白生成原尺寸 PDF，支持本机 Excel/WPS")]
 [assembly: AssemblyProduct(AutoPaper.AppInfo.ProductName)]
 [assembly: AssemblyVersion(AutoPaper.AppInfo.AssemblyVersion)]
 [assembly: AssemblyFileVersion(AutoPaper.AppInfo.AssemblyVersion)]
@@ -48,7 +48,7 @@ namespace AutoPaper
             ClientSize = new Size(730, 670); MinimumSize = new Size(746, 709);
             StartPosition = FormStartPosition.CenterScreen;
             Font = new Font("Microsoft YaHei UI", 10); AutoScaleMode = AutoScaleMode.Dpi;
-            LabelAt("按打印区域自动选最小可用纸型，保留 100% 原尺寸", 20,16,690,28);
+            LabelAt("PDF 页面 = 打印区域 + 四边留白，保持 100% 原尺寸", 20,16,690,28);
             LabelAt("先保存表格，再选择文件。每次导出重新计算，适用于不同表格。",20,46,690,26);
             LabelAt("表格软件",20,88,85,27);
             engine = new ComboBox { DropDownStyle = ComboBoxStyle.DropDownList, Location = new Point(112,84), Size = new Size(170,28) };
@@ -70,14 +70,14 @@ namespace AutoPaper
             LabelAt("文件名预览",20,405,90,27); preview = TextAt(112,401,590,28); preview.ReadOnly = true;
             remember = new CheckBox { Text = "记住命名设置", Location = new Point(20,438), Size = new Size(195,25) }; Controls.Add(remember);
             LabelAt("日期为 yyyyMMdd；不自动添加横线或下划线。",220,439,490,26);
-            export = ButtonAt("自动选纸并导出 PDF",20,475,245,38); export.Enabled = false; export.Click += Export;
+            export = ButtonAt("按原尺寸导出 PDF",20,475,245,38); export.Enabled = false; export.Click += Export;
             thinLines = new CheckBox { Text = "细边框优化（0.5 磅）", Checked = true,
                 Location = new Point(283,481), Size = new Size(290,29) }; Controls.Add(thinLines);
             var about = ButtonAt("关于",602,475,100,38);
             about.Click += delegate {
                 MessageBox.Show(this, AppInfo.ProductName + "\r\n版本：V" + AppInfo.Version +
                     "\r\n发布日期：" + AppInfo.ReleaseDateText +
-                    "\r\n\r\n程序按打印区域和 100% 原尺寸自动选择纸型，\r\n通过本机 Excel 或 WPS 导出 PDF。" +
+                    "\r\n\r\n程序通过本机 Excel 或 WPS 按 100% 原尺寸排版，\r\n最终 PDF 页面为打印区域加四边留白。" +
                     "\r\n页边距支持沿用表格或自定义上、下、左、右毫米数，\r\n设置会自动记住，不改写原工作簿。" +
                     "\r\n细边框优化：识别 WPS 导出的约 1 磅实心表格线，\r\n自动调整为 0.5 磅。保留文字、图片和页面尺寸。" +
                     "\r\n\r\n内含 PDFsharp 6.2.4（MIT）等开源组件。\r\n版权及许可见程序内嵌 ThirdPartyNotices.txt。",

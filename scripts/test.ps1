@@ -7,4 +7,5 @@ try {
     $env:AUTOPAPER_TEST_EXE = $exe
     & (Join-Path $root 'tests/core.tests.ps1')
     & (Join-Path $root 'tests/margins.tests.ps1')
+    & (Join-Path $root 'tests/pdf-page.tests.ps1')
 } finally { $env:AUTOPAPER_TEST_EXE = $previous }

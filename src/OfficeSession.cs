@@ -138,7 +138,7 @@ namespace AutoPaper
         public void Export(string sheetName, string addressOverride, string destination, Action<string> log, bool optimizeThinLines = true, PageMargins marginSettings = null)
         {
             dynamic sheet = null, page = null, range = null;
-            string temporary = null, optimized = null;
+            string temporary = null, optimized = null, fitted = null;
             try
             {
                 sheet = book.Worksheets.Item[sheetName]; sheet.Select(true); page = sheet.PageSetup;
@@ -150,11 +150,15 @@ namespace AutoPaper
                 if (String.IsNullOrWhiteSpace(address)) throw new InvalidOperationException("此工作表未设置打印区域，请填写一个连续区域，例如 A1:N20。");
                 range = sheet.Range[address];
                 if ((int)range.Areas.Count != 1) throw new InvalidOperationException("打印区域含多块不连续范围，请指定一块连续区域。");
+                int firstRow = (int)range.Row, firstColumn = (int)range.Column;
+                PrintAreaLayout.Validate((object)page, firstRow, firstRow + (int)range.Rows.Count - 1,
+                    firstColumn, firstColumn + (int)range.Columns.Count - 1);
                 double width = (double)range.Width, height = (double)range.Height;
                 if (width <= 0 || height <= 0) throw new InvalidOperationException("打印区域没有可见尺寸。");
-                double requiredW = width + PageMargins.ToPoints(effectiveMargins.LeftMm + effectiveMargins.RightMm) + 1.0;
-                double requiredH = height + PageMargins.ToPoints(effectiveMargins.TopMm + effectiveMargins.BottomMm) + 1.0;
-                var candidates = Core.Candidates(Papers(log), requiredW, requiredH);
+                double finalW = width + PageMargins.ToPoints(effectiveMargins.LeftMm + effectiveMargins.RightMm);
+                double finalH = height + PageMargins.ToPoints(effectiveMargins.TopMm + effectiveMargins.BottomMm);
+                // The 1-point fitting guard belongs to intermediate paper only.
+                var candidates = Core.Candidates(Papers(log), finalW + 1.0, finalH + 1.0);
                 log(String.Format("内容尺寸：{0:N1} × {1:N1} 毫米；缩放为 100%。", width * 25.4 / 72, height * 25.4 / 72));
                 log((useCustomMargins ? "自定义页边距：" : "沿用表格页边距：") + effectiveMargins.Description());
                 if (candidates.Count == 0) throw new InvalidOperationException("现有纸型没有能以 100% 大小容纳该区域的单页纸张，未生成 PDF。");
@@ -175,7 +179,7 @@ namespace AutoPaper
                     catch (Exception ex) { lastReason = ex.Message; }
                 }
                 if (chosen == null) throw new InvalidOperationException("没有通过原尺寸分页检查的纸型，未生成 PDF。" + lastReason);
-                log(String.Format("选定：{0}，{1}，{2:N1} × {3:N1} 毫米。", chosen.Name,
+                log(String.Format("中间排版纸型：{0}，{1}，{2:N1} × {3:N1} 毫米。", chosen.Name,
                     chosen.Orientation == 1 ? "纵向" : "横向", chosen.WidthPt * 25.4 / 72, chosen.HeightPt * 25.4 / 72));
                 temporary = Path.Combine(Path.GetDirectoryName(destination), ".autopaper-" + Guid.NewGuid().ToString("N") + ".pdf");
                 sheet.ExportAsFixedFormat(0, temporary, 0, true, false, Type.Missing, Type.Missing, false);
@@ -190,16 +194,22 @@ namespace AutoPaper
                         File.Delete(temporary); temporary = optimized; optimized = null;
                         log("已将 " + changed + " 条 WPS 表格细边框调整为 0.5 磅；文字、图片和页面尺寸保持不变。");
                     }
-                    else log("未发现需要优化的 WPS 表格细边框，保留软件原始输出。");
+                    else log("未发现需要优化的 WPS 表格细边框，保持原线条。");
                 }
+                fitted = Path.Combine(Path.GetDirectoryName(destination), ".autopaper-" + Guid.NewGuid().ToString("N") + "-page.pdf");
+                PdfPageFitter.Fit(temporary, fitted, finalW, finalH);
+                File.Delete(temporary); temporary = fitted; fitted = null;
                 Core.CommitPdf(temporary, destination); temporary = null;
+                log(String.Format("最终 PDF 页面：{0:N2} × {1:N2} 毫米；打印区域加四边留白，保持 100% 原尺寸。",
+                    PageMargins.ToMm(finalW), PageMargins.ToMm(finalH)));
                 log("已输出：" + destination);
-                log("原工作簿未改写。纸张取自已有纸型，边缘可能仍有余白。");
+                log("原工作簿未改写。留白从打印区域边界计算，区域内部的空行、空列仍保留。");
             }
             finally
             {
                 if (temporary != null && File.Exists(temporary)) File.Delete(temporary);
                 if (optimized != null && File.Exists(optimized)) File.Delete(optimized);
+                if (fitted != null && File.Exists(fitted)) File.Delete(fitted);
                 Release((object)range); Release((object)page); Release((object)sheet);
             }
         }

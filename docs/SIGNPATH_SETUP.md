@@ -9,7 +9,7 @@
 3. 保留仓库中已有的 `LICENSE`。本包提供的新 `README.md` 会更新原有项目介绍。
 4. 确认上传完成，填写提交说明 `Add application source and build workflow`，提交到 `main`。
 5. 打开仓库的 `Actions`，查看 `Build and test`。必须取得实际成功结果；本地检查不能证明 GitHub 工作流已运行成功。
-6. 成功后，在该次运行的 `Artifacts` 下载 `AutoPaperPDF-1.7.1-unsigned`。在 Windows 上测试实际 Excel/WPS 导出、页边距和图片，再决定是否发布。
+6. 成功后，在该次运行的 `Artifacts` 下载 `AutoPaperPDF-1.8.1-unsigned`。在 Windows 上测试实际 Excel/WPS 导出、页边距和图片，再决定是否发布。
 
 ## 2. 准备公开发布及申请
 
@@ -48,7 +48,7 @@
 
 值必须来自实际 SignPath 配置，不是照抄示例名称。不要把 API token、PFX 或证书密码写入文件和提交记录。
 
-配置完成后，在 `Actions → Request SignPath signing → Run workflow` 手动启动，在 SignPath 审查并批准此次签名。成功后下载 `AutoPaperPDF-1.7.1-signed` 构建产物，并按发布检查结果手动更新 Release。
+配置完成后，在 `Actions → Request SignPath signing → Run workflow` 手动启动，在 SignPath 审查并批准此次签名。成功后下载 `AutoPaperPDF-1.8.1-signed` 构建产物，并按发布检查结果手动更新 Release。
 
 工作流不自动创建 Release。生产签名验证要求 Windows 信任链有效且证书主体包含 `SignPath Foundation`，自签证书不能通过该检查。
 

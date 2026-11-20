@@ -36,7 +36,7 @@ Check ($page.Zoom -eq 100 -and $page.LeftHeader -eq 'header') 'margin setting le
 $state.ApplyForExport($page,[AutoPaper.PageMargins]::new())
 $actual=[AutoPaper.PageMargins]::FromPage($page)
 Check ((Near $actual.TopMm 3) -and (Near $actual.BottomMm 3) -and (Near $actual.LeftMm 4.5) -and (Near $actual.RightMm 4.5)) 'switch back restores original sheet margins'
-Check ($page.CenterHorizontally -and -not $page.CenterVertically) 'restore horizontal centering and retain export top placement'
+Check (-not $page.CenterHorizontally -and -not $page.CenterVertically) 'original margins retain top-left placement for exact PDF page'
 $custom.TopMm=9;$state.ApplyForExport($page,$custom);$state.ApplyForExport($page,$null)
 Check (Near ([AutoPaper.PageMargins]::FromPage($page).TopMm) 3) 'repeat export does not overwrite original margin snapshot'
 $copy=$state.Original;$copy.TopMm=66
