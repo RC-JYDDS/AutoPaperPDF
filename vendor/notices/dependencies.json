@@ -1,0 +1,107 @@
+[
+  {
+    "name": "PDFsharp",
+    "version": "6.2.4",
+    "tfm": "netstandard2.0",
+    "files": [
+      "PdfSharp.BarCodes.dll",
+      "PdfSharp.BarCodes.xml",
+      "PdfSharp.Cryptography.dll",
+      "PdfSharp.Cryptography.xml",
+      "PdfSharp.Quality.dll",
+      "PdfSharp.Quality.xml",
+      "PdfSharp.Snippets.dll",
+      "PdfSharp.System.dll",
+      "PdfSharp.System.xml",
+      "PdfSharp.WPFonts.xml",
+      "PdfSharp.xml",
+      "PdfSharp.Charting.dll",
+      "PdfSharp.Charting.xml",
+      "PdfSharp.dll",
+      "PdfSharp.Shared.dll",
+      "PdfSharp.Shared.xml",
+      "PdfSharp.WPFonts.dll"
+    ]
+  },
+  {
+    "name": "Microsoft.Extensions.Logging.Abstractions",
+    "version": "8.0.3",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Extensions.Logging.Abstractions.dll",
+      "Microsoft.Extensions.Logging.Abstractions.xml"
+    ]
+  },
+  {
+    "name": "System.Security.Cryptography.Pkcs",
+    "version": "8.0.1",
+    "tfm": "net462",
+    "files": [
+      "System.Security.Cryptography.Pkcs.dll",
+      "System.Security.Cryptography.Pkcs.xml"
+    ]
+  },
+  {
+    "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+    "version": "8.0.2",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "Microsoft.Extensions.DependencyInjection.Abstractions.xml"
+    ]
+  },
+  {
+    "name": "System.Buffers",
+    "version": "4.5.1",
+    "tfm": "net461",
+    "files": [
+      "System.Buffers.xml",
+      "System.Buffers.dll"
+    ]
+  },
+  {
+    "name": "System.Memory",
+    "version": "4.5.5",
+    "tfm": "net461",
+    "files": [
+      "System.Memory.xml",
+      "System.Memory.dll"
+    ]
+  },
+  {
+    "name": "Microsoft.Bcl.AsyncInterfaces",
+    "version": "8.0.0",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Bcl.AsyncInterfaces.dll",
+      "Microsoft.Bcl.AsyncInterfaces.xml"
+    ]
+  },
+  {
+    "name": "System.Threading.Tasks.Extensions",
+    "version": "4.5.4",
+    "tfm": "net461",
+    "files": [
+      "System.Threading.Tasks.Extensions.xml",
+      "System.Threading.Tasks.Extensions.dll"
+    ]
+  },
+  {
+    "name": "System.Numerics.Vectors",
+    "version": "4.5.0",
+    "tfm": "net46",
+    "files": [
+      "System.Numerics.Vectors.xml",
+      "System.Numerics.Vectors.dll"
+    ]
+  },
+  {
+    "name": "System.Runtime.CompilerServices.Unsafe",
+    "version": "4.5.3",
+    "tfm": "net461",
+    "files": [
+      "System.Runtime.CompilerServices.Unsafe.xml",
+      "System.Runtime.CompilerServices.Unsafe.dll"
+    ]
+  }
+]

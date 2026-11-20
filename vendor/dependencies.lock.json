@@ -1,0 +1,172 @@
+[
+  {
+    "name": "PDFsharp",
+    "version": "6.2.4",
+    "tfm": "netstandard2.0",
+    "files": [
+      "PdfSharp.BarCodes.dll",
+      "PdfSharp.BarCodes.xml",
+      "PdfSharp.Cryptography.dll",
+      "PdfSharp.Cryptography.xml",
+      "PdfSharp.Quality.dll",
+      "PdfSharp.Quality.xml",
+      "PdfSharp.Snippets.dll",
+      "PdfSharp.System.dll",
+      "PdfSharp.System.xml",
+      "PdfSharp.WPFonts.xml",
+      "PdfSharp.xml",
+      "PdfSharp.Charting.dll",
+      "PdfSharp.Charting.xml",
+      "PdfSharp.dll",
+      "PdfSharp.Shared.dll",
+      "PdfSharp.Shared.xml",
+      "PdfSharp.WPFonts.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/PDFsharp/6.2.4",
+    "sha256": {
+      "PdfSharp.BarCodes.dll": "8cdcecbc297ca33ccba22fe25cb89750af4dbd7289ce01eaae2c98e837008689",
+      "PdfSharp.BarCodes.xml": "2cff5be78218bf16fc3d370b7b592fb5ff9e496de41069a5b2b2724f2a53d4b5",
+      "PdfSharp.Cryptography.dll": "1a69f4067bb551a38b8b03821c8d79625dc72aedb9106ecd368f18b87486143a",
+      "PdfSharp.Cryptography.xml": "b1790a04027e963624c12b4136d26a7a57f9d4dee1d636ce41406740a21aab89",
+      "PdfSharp.Quality.dll": "cd9c33ec71a6e702eec06fae7feb8e872a3b803408d739566af83abbdc61009a",
+      "PdfSharp.Quality.xml": "fbcbfec37a8599638eabd57d990e27f431390b75c75ae4cfc9e0632df310af83",
+      "PdfSharp.Snippets.dll": "bf8359d7ad1292d06aadb8ad0f996a33fd163fa7bf35b9628e50d727d37e10bd",
+      "PdfSharp.System.dll": "361b75ae4da87cd63f4b451bbc2239770d9175d9cfaa466c41a6fb495991f221",
+      "PdfSharp.System.xml": "f39b95367e1728a31454fd3cb8687445eaf936b333a7131b68d1fa3252916fe9",
+      "PdfSharp.WPFonts.xml": "3665c541da2288a27ba9d611395c905d145c4ae9f8f3ef6be007ea9b166f15f0",
+      "PdfSharp.xml": "d51c810e3401162d5d8f3b0f8fbeb4762eeac7206705382d7e656f1911edc400",
+      "PdfSharp.Charting.dll": "dee811622af396450c591f959595cd6fd1415f9d20bb4d12a6ca24082a5c9225",
+      "PdfSharp.Charting.xml": "d1eb8c1962e0486ec95073e220a7a3441294189c411797db9c3880dd5d06a1ed",
+      "PdfSharp.dll": "b3a6ae252ebc9f16a04944fa66c82782604e9a773b973d9ff8a43f8cab26e719",
+      "PdfSharp.Shared.dll": "ad30af67d13f532372a350cd83b1c64d04fd8aad64c4695caaf2e4322609f235",
+      "PdfSharp.Shared.xml": "ee2881257d52c6c4deea95035903d85d86969a99793145c92e2c00d1b4fba793",
+      "PdfSharp.WPFonts.dll": "5db891b3ae62ae87deda3e037b504336316003e4e5c4dc9574311da64824d712"
+    }
+  },
+  {
+    "name": "Microsoft.Extensions.Logging.Abstractions",
+    "version": "8.0.3",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Extensions.Logging.Abstractions.dll",
+      "Microsoft.Extensions.Logging.Abstractions.xml"
+    ],
+    "package_url": "https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/8.0.3",
+    "sha256": {
+      "Microsoft.Extensions.Logging.Abstractions.dll": "b4e0e778afdc76403792390b056f68de0ced742d16c5b0347d9cca6930f4761b",
+      "Microsoft.Extensions.Logging.Abstractions.xml": "8ea6209c93e063a0f0e03feb43dbe05f0e7e4cd5117b6519c566183d27b7b81c"
+    }
+  },
+  {
+    "name": "System.Security.Cryptography.Pkcs",
+    "version": "8.0.1",
+    "tfm": "net462",
+    "files": [
+      "System.Security.Cryptography.Pkcs.dll",
+      "System.Security.Cryptography.Pkcs.xml"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Security.Cryptography.Pkcs/8.0.1",
+    "sha256": {
+      "System.Security.Cryptography.Pkcs.dll": "89436836e39a6bb4275613ce45226ffa10e590151296343560221441d7a79670",
+      "System.Security.Cryptography.Pkcs.xml": "db842d62ee8d57493148602cbdad09333d3dbf403d3395843cde054f01a5b0b6"
+    }
+  },
+  {
+    "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+    "version": "8.0.2",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "Microsoft.Extensions.DependencyInjection.Abstractions.xml"
+    ],
+    "package_url": "https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection.Abstractions/8.0.2",
+    "sha256": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions.dll": "19edd4f5e69a4589dc314909b5854a22f89c4b9ab040591771397b2cb1a17ba6",
+      "Microsoft.Extensions.DependencyInjection.Abstractions.xml": "9f629c193cf8767344bd0a58f2b513f248ffda9d7bd7d55286639e1f2ae63518"
+    }
+  },
+  {
+    "name": "System.Buffers",
+    "version": "4.5.1",
+    "tfm": "net461",
+    "files": [
+      "System.Buffers.xml",
+      "System.Buffers.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Buffers/4.5.1",
+    "sha256": {
+      "System.Buffers.xml": "2ec7fb12e11f9831e40524427f6d88a3c9ffdd56ccfa81d373467b75b479a578",
+      "System.Buffers.dll": "accccfbe45d9f08ffeed9916e37b33e98c65be012cfff6e7fa7b67210ce1fefb"
+    }
+  },
+  {
+    "name": "System.Memory",
+    "version": "4.5.5",
+    "tfm": "net461",
+    "files": [
+      "System.Memory.xml",
+      "System.Memory.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Memory/4.5.5",
+    "sha256": {
+      "System.Memory.xml": "d5714c96607eb1a9d0f90f57ca194d8a9c3ede0656a1d1f461e78b209f054813",
+      "System.Memory.dll": "bf3fb84664f4097f1a8a9bc71a51dcf8cf1a905d4080a4d290da1730866e856f"
+    }
+  },
+  {
+    "name": "Microsoft.Bcl.AsyncInterfaces",
+    "version": "8.0.0",
+    "tfm": "net462",
+    "files": [
+      "Microsoft.Bcl.AsyncInterfaces.dll",
+      "Microsoft.Bcl.AsyncInterfaces.xml"
+    ],
+    "package_url": "https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces/8.0.0",
+    "sha256": {
+      "Microsoft.Bcl.AsyncInterfaces.dll": "80678203bd0203a6594f4e330b22543c0de5059382bb1c9334b7868b8f31b1bc",
+      "Microsoft.Bcl.AsyncInterfaces.xml": "3d06c35d7b0eca37abe2d135cfe12d1012816a99e5e92e0cf4e8501e1b540aae"
+    }
+  },
+  {
+    "name": "System.Threading.Tasks.Extensions",
+    "version": "4.5.4",
+    "tfm": "net461",
+    "files": [
+      "System.Threading.Tasks.Extensions.xml",
+      "System.Threading.Tasks.Extensions.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Threading.Tasks.Extensions/4.5.4",
+    "sha256": {
+      "System.Threading.Tasks.Extensions.xml": "975a9555f561b363c3e02fd533f6bf7083aa11bbc7cbf2b46c31df3d3696b97b",
+      "System.Threading.Tasks.Extensions.dll": "4f81ffd0dc7204db75afc35ea4291769b07c440592f28894260eea76626a23c6"
+    }
+  },
+  {
+    "name": "System.Numerics.Vectors",
+    "version": "4.5.0",
+    "tfm": "net46",
+    "files": [
+      "System.Numerics.Vectors.xml",
+      "System.Numerics.Vectors.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Numerics.Vectors/4.5.0",
+    "sha256": {
+      "System.Numerics.Vectors.xml": "ae2c3de9ad57d7091d9f44dcdee3f88eccf2ba7cb43adc9bb24769154a532dc7",
+      "System.Numerics.Vectors.dll": "1d3ef8698281e7cf7371d1554afef5872b39f96c26da772210a33da041ba1183"
+    }
+  },
+  {
+    "name": "System.Runtime.CompilerServices.Unsafe",
+    "version": "4.5.3",
+    "tfm": "net461",
+    "files": [
+      "System.Runtime.CompilerServices.Unsafe.xml",
+      "System.Runtime.CompilerServices.Unsafe.dll"
+    ],
+    "package_url": "https://www.nuget.org/packages/System.Runtime.CompilerServices.Unsafe/4.5.3",
+    "sha256": {
+      "System.Runtime.CompilerServices.Unsafe.xml": "63e32ebb4b26c25f65ddf26b5fa9d7147a9c8b45df355db90ac706afec980036",
+      "System.Runtime.CompilerServices.Unsafe.dll": "66409f670315afe8610f17a4d3a1ee52d72b6a46c544cec97544e8385f90ad74"
+    }
+  }
+]
