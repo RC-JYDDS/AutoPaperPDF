@@ -201,10 +201,10 @@ namespace AutoPaper
                 FileName=filename,InitialDirectory=Path.GetDirectoryName(session.FilePath) })
             { if(dialog.ShowDialog(this)!=DialogResult.OK) return; destination=dialog.FileName; }
             SetBusy(true);
-            try { session.Export((string)sheets.SelectedItem,range.Text,destination,Log,thinLines.Checked,marginSettings);
-                MessageBox.Show(this,"已导出："+destination+"\r\n原表格未改写。","导出完成",MessageBoxButtons.OK,MessageBoxIcon.Information); }
-            catch(Exception ex) { Log("导出停止："+ex.Message); MessageBox.Show(this,ex.Message,"未完成导出",MessageBoxButtons.OK,MessageBoxIcon.Warning); }
+            try { session.Export((string)sheets.SelectedItem,range.Text,destination,Log,thinLines.Checked,marginSettings); }
+            catch(Exception ex) { Log("导出停止："+ex.Message); MessageBox.Show(this,ex.Message,"未完成导出",MessageBoxButtons.OK,MessageBoxIcon.Warning); return; }
             finally { SetBusy(false); }
+            ExportCompleteDialog.ShowResult(this, destination);
         }
 
         void ClosingForm(object sender,FormClosingEventArgs args)
